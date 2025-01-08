@@ -16,3 +16,18 @@ export const NAV_THEME = {
     text: "hsl(0 0% 98%)", // foreground
   },
 };
+
+export const accounts = [
+  { id: "1", flag: "🇸🇬", amount: "15.00", currency: "Singapore Dollar" },
+  { id: "2", flag: "🇦🇺", amount: "0.00", currency: "Australian Dollar" },
+];
+
+export const transactions = [
+  { id: "1", type: "Paid", description: "For your Wise card", amount: "9 SGD" },
+  {
+    id: "2",
+    type: "Added",
+    description: "To your SGD balance",
+    amount: "24 SGD",
+  },
+];

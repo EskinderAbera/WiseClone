@@ -12,6 +12,7 @@ import {
   ArrowUp,
   Baby,
   BadgeAlert,
+  Bell,
   Bold,
   Calendar,
   CalendarDays,
@@ -99,6 +100,7 @@ interopIcon(Copy);
 interopIcon(CalendarDays);
 interopIcon(Sparkles);
 interopIcon(Bold);
+interopIcon(Bell);
 interopIcon(Italic);
 interopIcon(Underline);
 interopIcon(AlignLeft);
@@ -137,6 +139,7 @@ export {
   ArrowUp,
   Baby,
   BadgeAlert,
+  Bell,
   Bold,
   Calendar,
   CalendarDays,
