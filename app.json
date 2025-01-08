@@ -29,6 +29,14 @@
     ],
     "name": "WiseClone",
     "slug": "WiseClone",
-    "newArchEnabled": true
+    "newArchEnabled": true,
+    "extra": {
+      "router": {
+        "origin": "https://n"
+      },
+      "eas": {
+        "projectId": "2cf59db1-c3e1-41da-a1f5-c1d742031738"
+      }
+    }
   }
 }
