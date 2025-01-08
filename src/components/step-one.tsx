@@ -21,12 +21,6 @@ export default function StepOne() {
       >
         Check our rates
       </Link>
-      <Link
-        href="#"
-        className="w-full bg-[#9CD323] text-black py-4 rounded-full text-center text-lg font-medium mb-8"
-      >
-        Get started
-      </Link>
     </View>
   );
 }

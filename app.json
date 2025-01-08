@@ -15,7 +15,7 @@
         }
       ],
       [
-        "expo-secure-store",  
+        "expo-secure-store",
         {
           "configureAndroidBackup": true,
           "faceIDPermission": "Allow WiseClone to access your Face ID biometric data."
@@ -23,6 +23,7 @@
       ]
     ],
     "name": "WiseClone",
-    "slug": "WiseClone"
+    "slug": "WiseClone",
+    "newArchEnabled": true
   }
 }

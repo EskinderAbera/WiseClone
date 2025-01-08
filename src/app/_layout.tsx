@@ -4,7 +4,11 @@ import React from "react";
 import { Platform } from "react-native";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { type Theme, ThemeProvider } from "@react-navigation/native";
+import {
+  type Theme,
+  ThemeProvider,
+  DefaultTheme,
+} from "@react-navigation/native";
 
 import { useColorScheme } from "@/lib/use-color-scheme";
 import { getItem, setItem } from "@/lib/storage";
@@ -12,48 +16,14 @@ import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
 import { NAV_THEME } from "@/lib/constants";
 
 const LIGHT_THEME: Theme = {
+  ...DefaultTheme,
   dark: false,
   colors: NAV_THEME.light,
-  fonts: {
-    regular: {
-      fontFamily: "Inter-Regular",
-      fontWeight: "normal",
-    },
-    medium: {
-      fontFamily: "Inter-Medium",
-      fontWeight: "500",
-    },
-    bold: {
-      fontFamily: "Inter-Bold",
-      fontWeight: "bold",
-    },
-    heavy: {
-      fontFamily: "Inter-Black",
-      fontWeight: "900",
-    },
-  },
 };
 const DARK_THEME: Theme = {
+  ...DefaultTheme,
   dark: true,
   colors: NAV_THEME.dark,
-  fonts: {
-    regular: {
-      fontFamily: "Inter-Regular",
-      fontWeight: "normal",
-    },
-    medium: {
-      fontFamily: "Inter-Medium",
-      fontWeight: "500",
-    },
-    bold: {
-      fontFamily: "Inter-Bold",
-      fontWeight: "bold",
-    },
-    heavy: {
-      fontFamily: "Inter-Black",
-      fontWeight: "900",
-    },
-  },
 };
 
 export default function Layout() {
