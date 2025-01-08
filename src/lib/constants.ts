@@ -1,3 +1,7 @@
+import { Dimensions } from "react-native";
+
+export const { width, height } = Dimensions.get("screen");
+
 export const NAV_THEME = {
   light: {
     background: "hsl(0 0% 100%)", // background
@@ -29,5 +33,27 @@ export const transactions = [
     type: "Added",
     description: "To your SGD balance",
     amount: "24 SGD",
+  },
+];
+
+export const _imageWidth = 300;
+export const _imageHeight = 200;
+export const _spacing = 12;
+
+export const sampleCards = [
+  {
+    id: "1",
+    image: require("../../assets/virtual.png"),
+    accountNo: "1234",
+  },
+  {
+    id: "2",
+    image: require("../../assets/virtual.png"),
+    accountNo: "1234",
+  },
+  {
+    id: "3",
+    image: require("../../assets/virtual.png"),
+    accountNo: "1234",
   },
 ];
