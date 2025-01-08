@@ -1,6 +1,8 @@
-import { Link } from "expo-router";
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { Link } from "expo-router";
+import { Separator } from "@/components/ui/separator";
+import DarkMode from "@/components/dark-mode";
 
 export default function ManageMain() {
   return (
@@ -14,7 +16,7 @@ export default function ManageMain() {
           </Text>
         </View>
       </View>
-      <View className="bg-gray-100 dark:bg-gray-800 mt-3 flex flex-row gap-4 py-8 rounded-lg">
+      <View className="bg-gray-100 dark:bg-gray-800 mt-5 flex flex-row gap-4 py-8 rounded-lg">
         <Image
           source={require("../../assets/invite.png")}
           style={{ height: 80, width: 64 }}
@@ -26,6 +28,15 @@ export default function ManageMain() {
           <Link href="#" className="text-green-600 underline">
             Learn more
           </Link>
+        </View>
+      </View>
+
+      <View className="mt-8">
+        <Text className="text-gray-600 text-lg dark:text-white">
+          Account Services
+        </Text>
+        <View className="gap-4 mt-10">
+          <DarkMode />
         </View>
       </View>
     </View>
