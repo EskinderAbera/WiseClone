@@ -26,6 +26,7 @@ import {
   ChevronsDownUp,
   ChevronsUpDown,
   CircleUserRound,
+  CircleHelp,
   Cloud,
   Code,
   Copy,
@@ -58,6 +59,8 @@ import {
   UserPlus,
   Users,
   X,
+  Home,
+  LayoutGrid,
 } from "lucide-react-native";
 import { cssInterop } from "nativewind";
 function interopIcon(icon: LucideIcon) {
@@ -128,6 +131,9 @@ interopIcon(AlertTriangle);
 interopIcon(Code);
 interopIcon(CheckSquare);
 interopIcon(Snowflake);
+interopIcon(Home);
+interopIcon(LayoutGrid);
+interopIcon(CircleHelp);
 
 export {
   Activity,
@@ -164,6 +170,7 @@ export {
   Ear,
   Fan,
   GalleryHorizontal,
+  Home,
   Info,
   Italic,
   Lamp,
@@ -187,4 +194,6 @@ export {
   UserPlus,
   Users,
   X,
+  LayoutGrid,
+  CircleHelp,
 };
