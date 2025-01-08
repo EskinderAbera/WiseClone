@@ -37,6 +37,9 @@
       "eas": {
         "projectId": "2cf59db1-c3e1-41da-a1f5-c1d742031738"
       }
+    },
+    "android": {
+      "package": "com.eske17.WiseClone"
     }
   }
 }
