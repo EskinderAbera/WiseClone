@@ -13,6 +13,13 @@
         {
           "origin": "https://n"
         }
+      ],
+      [
+        "expo-secure-store",  
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow WiseClone to access your Face ID biometric data."
+        }
       ]
     ],
     "name": "WiseClone",
