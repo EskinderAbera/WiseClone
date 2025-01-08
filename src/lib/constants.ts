@@ -44,16 +44,16 @@ export const sampleCards = [
   {
     id: "1",
     image: require("../../assets/virtual.png"),
-    accountNo: "1234",
+    accountNo: "10455004213457",
   },
   {
     id: "2",
     image: require("../../assets/virtual.png"),
-    accountNo: "1234",
+    accountNo: "10455004212876",
   },
   {
     id: "3",
     image: require("../../assets/virtual.png"),
-    accountNo: "1234",
+    accountNo: "10455004215779",
   },
 ];

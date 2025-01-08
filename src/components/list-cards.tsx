@@ -1,4 +1,5 @@
-import { View, Text, FlatList, StyleSheet, Image } from "react-native";
+import React from "react";
+import { View, Text, FlatList, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   _imageHeight,
@@ -7,7 +8,6 @@ import {
   sampleCards,
   width,
 } from "@/lib/constants";
-import React from "react";
 
 export default function CardList() {
   const { top } = useSafeAreaInsets();
@@ -20,16 +20,11 @@ export default function CardList() {
           width: _imageWidth,
           height: _imageHeight,
           borderRadius: 16,
-          // shadowColor: "#000",
-          // shadowRadius: 4,
-          // shadowOpacity: 0.3,
-          // shadowOffset: {
-          //   width: 0,
-          //   height: 2,
-          // },
         }}
       />
-      <Text className="dark:text-white">{item.accountNo}</Text>
+      <Text className="dark:text-white mt-6">
+        Digital Card •••• {item.accountNo.slice(-4)}
+      </Text>
     </View>
   );
 

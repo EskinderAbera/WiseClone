@@ -29,6 +29,7 @@ import {
   Cloud,
   Code,
   Copy,
+  CreditCard,
   Database,
   Ear,
   Fan,
@@ -48,6 +49,7 @@ import {
   Plus,
   PlusCircle,
   Search,
+  Snowflake,
   Sparkles,
   Sun,
   Table,
@@ -83,6 +85,7 @@ interopIcon(BadgeAlert);
 interopIcon(Calendar);
 interopIcon(CircleUserRound);
 interopIcon(Database);
+interopIcon(CreditCard);
 interopIcon(Ear);
 interopIcon(Fan);
 interopIcon(GalleryHorizontal);
@@ -124,6 +127,7 @@ interopIcon(Terminal);
 interopIcon(AlertTriangle);
 interopIcon(Code);
 interopIcon(CheckSquare);
+interopIcon(Snowflake);
 
 export {
   Activity,
@@ -155,6 +159,7 @@ export {
   Cloud,
   Code,
   Copy,
+  CreditCard,
   Database,
   Ear,
   Fan,
@@ -173,6 +178,7 @@ export {
   Plus,
   PlusCircle,
   Search,
+  Snowflake,
   Sparkles,
   Sun,
   Table,
