@@ -12,5 +12,6 @@ export function getItem<T>(key: string): T | null {
 }
 
 export function setItem<T>(key: string, value: T) {
+  console.log("setItem", key, value);
   Storage.setItem(key, JSON.stringify(value));
 }

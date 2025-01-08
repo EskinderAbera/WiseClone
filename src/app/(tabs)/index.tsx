@@ -1,8 +1,8 @@
+import React from "react";
+import { View, ScrollView } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import HomeHeader from "@/components/home-header";
 import HomeMain from "@/components/home-main";
-import React from "react";
-import { View, Text, ScrollView } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Page() {
   const { top } = useSafeAreaInsets();

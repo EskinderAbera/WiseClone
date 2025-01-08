@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { Redirect, Tabs } from "expo-router";
 
 import { useClientOnlyValue } from "@/components/use-client-only-value";
 import { NAV_THEME } from "@/lib/constants";
@@ -11,9 +11,14 @@ import {
   Users,
 } from "@/components/icons";
 import { View } from "react-native";
+import { getItem } from "@/lib/storage";
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
+  const onboard = getItem("onboard");
+
+  if (!onboard) return <Redirect href="/onboard" />;
+
   return (
     <Tabs
       screenOptions={{

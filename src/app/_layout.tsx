@@ -99,12 +99,11 @@ export default function Layout() {
   if (!isColorSchemeLoaded || !isReady) {
     return null;
   }
+
   return (
-    // <AnimateLoader>
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
       <Slot />
     </ThemeProvider>
-    // </AnimateLoader>
   );
 }
