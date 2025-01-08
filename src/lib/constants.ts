@@ -22,8 +22,20 @@ export const NAV_THEME = {
 };
 
 export const accounts = [
-  { id: "1", flag: "🇸🇬", amount: "15.00", currency: "Singapore Dollar" },
-  { id: "2", flag: "🇦🇺", amount: "0.00", currency: "Australian Dollar" },
+  {
+    id: "1",
+    flag: require("../../assets/singapore.png"),
+    amount: "15.00",
+    currency: "Singapore Dollar",
+    alt: "Singapore Flag",
+  },
+  {
+    id: "2",
+    flag: require("../../assets/australia.png"),
+    amount: "0.00",
+    currency: "Australian Dollar",
+    alt: "Australia Flag",
+  },
 ];
 
 export const transactions = [
@@ -39,6 +51,9 @@ export const transactions = [
 export const _imageWidth = 300;
 export const _imageHeight = 200;
 export const _spacing = 12;
+
+export const CELL_WIDTH = width * 0.5;
+export const CELL_HEIGHT = CELL_WIDTH * 1.2;
 
 export const sampleCards = [
   {
