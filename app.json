@@ -3,6 +3,11 @@
     "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "orientation": "default",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#87e95b"
+    },
     "web": {
       "output": "static",
       "bundler": "metro"

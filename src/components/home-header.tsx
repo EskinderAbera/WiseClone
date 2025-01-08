@@ -18,7 +18,7 @@ export default function HomeHeader() {
             Earn $115
           </Text>
         </Button>
-        <Bell className="w-6 h-6 dark:text-white" />
+        <Bell className="w-6 h-6 text-black dark:text-white" />
       </View>
     </View>
   );

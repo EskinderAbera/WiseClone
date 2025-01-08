@@ -53,7 +53,7 @@ export const _imageHeight = 200;
 export const _spacing = 12;
 
 export const CELL_WIDTH = width * 0.5;
-export const CELL_HEIGHT = CELL_WIDTH * 1.2;
+export const CELL_HEIGHT = CELL_WIDTH * 1.1;
 
 export const sampleCards = [
   {

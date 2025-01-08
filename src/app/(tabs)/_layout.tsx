@@ -5,15 +5,12 @@ import { NAV_THEME } from "@/lib/constants";
 import { useColorScheme } from "@/lib/use-color-scheme";
 import {
   ArrowUp,
-  ChevronUp,
   CreditCard,
   Home,
   LayoutGrid,
-  Plus,
   Users,
 } from "@/components/icons";
-import { View, Text } from "react-native";
-import { Button } from "@/components/ui/button";
+import { View } from "react-native";
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();

@@ -19,7 +19,7 @@ export default function Transactions() {
           <View className="flex flex-row items-center justify-between">
             <View className="flex flex-row items-center gap-4">
               <View className="size-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
-                <ArrowUp className="size-5 dark:text-white" />
+                <ArrowUp className="size-5 dark:text-white text-black" />
               </View>
               <View>
                 <Text className="font-medium dark:text-white">

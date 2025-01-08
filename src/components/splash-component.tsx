@@ -1,72 +1,145 @@
-import React from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, View, Image, ImageBackground } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  Easing,
   interpolate,
   Extrapolation,
   runOnJS,
 } from "react-native-reanimated";
+import { StatusBar } from "expo-status-bar";
+import { ArrowUp } from "./icons";
+import { height, width as screenWidth } from "@/lib/constants";
 
-const { height, width } = Dimensions.get("screen");
+interface SplashComponentProps {
+  onAnimationFinish: () => void;
+}
 
-export default function SplashComponent() {
-  const translateY = useSharedValue(height);
-  const imageWidth = useSharedValue(50);
-  const [animationComplete, setAnimationComplete] = React.useState(false);
+export default function SplashComponent({
+  onAnimationFinish,
+}: SplashComponentProps) {
+  const progress = useSharedValue(0);
 
-  React.useEffect(() => {
-    translateY.value = withTiming(-70, { duration: 1500 }, () => {
-      // Trigger the second animation for image expansion after the arrow animation
-      runOnJS(setAnimationComplete)(true); // Update state to reflect animation completion
-      imageWidth.value = withTiming(width, { duration: 1000 }, () => {
-        console.log("hello");
-      }); // Expand to full screen
-    });
+  const maskStyle = useAnimatedStyle(() => {
+    const maskWidth = interpolate(
+      progress.value,
+      [0, 1],
+      [60, screenWidth],
+      Extrapolation.CLAMP
+    );
 
-    // First stage: Expand image to 200 width during arrow animation
-    imageWidth.value = withTiming(200, { duration: 2000 });
-  }, []);
+    return {
+      position: "absolute",
+      width: maskWidth,
+      height: height,
+      backgroundColor: "transparent",
+      alignSelf: "center",
+      overflow: "hidden",
+    };
+  });
+
+  const backgroundStyle = useAnimatedStyle(() => {
+    return {
+      width: screenWidth,
+      height: height,
+      transform: [
+        {
+          translateX: interpolate(
+            progress.value,
+            [0, 1],
+            [-screenWidth / 2 + 30, 0],
+            Extrapolation.CLAMP
+          ),
+        },
+      ],
+    };
+  });
+
+  const overlayStyle = useAnimatedStyle(() => {
+    return {
+      position: "absolute",
+      width: screenWidth,
+      height: height,
+      backgroundColor: "#86e75b",
+      alignItems: "center" as const,
+      justifyContent: "center" as const,
+      transform: [
+        {
+          translateY: interpolate(
+            progress.value,
+            [0, 1],
+            [0, -height],
+            Extrapolation.CLAMP
+          ),
+        },
+      ],
+    };
+  });
 
   const arrowStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateY: translateY.value }],
-      opacity: animationComplete ? 0 : 1, // Hide arrow after animation
+      transform: [
+        {
+          translateY: interpolate(
+            progress.value,
+            [0, 1],
+            [height, height * 0.3],
+            Extrapolation.CLAMP
+          ),
+        },
+      ],
+      opacity: interpolate(
+        progress.value,
+        [0, 0.8, 1],
+        [1, 1, 0],
+        Extrapolation.CLAMP
+      ),
     };
   });
 
-  const revealMaskStyle = useAnimatedStyle(() => {
-    return {
-      height: interpolate(
-        translateY.value,
-        [0, height],
-        [height, 0],
-        Extrapolation.CLAMP
-      ),
-      transform: [{ translateY: translateY.value }],
-      width: imageWidth.value, // Dynamically control the width
-    };
-  });
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      progress.value = withTiming(
+        1,
+        {
+          duration: 1500,
+          easing: Easing.inOut(Easing.ease),
+        },
+        () => {
+          runOnJS(onAnimationFinish)();
+        }
+      );
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <View style={styles.container}>
-      <View style={styles.revealContainer}>
-        <Animated.Image
-          source={require("../../assets/background.png")}
-          style={[styles.revealMask, revealMaskStyle]}
-        />
-
-        {/* Green overlay */}
-        <Animated.View style={styles.greenOverlay} />
-      </View>
-
-      {/* Animated arrow */}
-      {!animationComplete && ( // Render arrow only if animation isn't complete
-        <Animated.View style={[styles.arrow, arrowStyle]}>
-          <View style={styles.arrowShape} />
+      <View style={[styles.container, { backgroundColor: "#86e75b" }]}>
+        <Animated.View style={maskStyle}>
+          <Animated.View style={backgroundStyle}>
+            <ImageBackground
+              source={require("../../assets/background.png")}
+              style={styles.background}
+            />
+          </Animated.View>
         </Animated.View>
-      )}
+
+        <Animated.View style={overlayStyle}>
+          <Image
+            source={require("../../assets/adaptive-icon.png")}
+            style={styles.logo}
+          />
+        </Animated.View>
+
+        <Animated.View style={[styles.arrowContainer, arrowStyle]}>
+          <ArrowUp color="#000" size={40} />
+        </Animated.View>
+      </View>
+      <StatusBar style="dark" />
     </View>
   );
 }
@@ -75,32 +148,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  revealContainer: {
-    ...StyleSheet.absoluteFillObject,
-    overflow: "hidden",
+  background: {
+    flex: 1,
   },
-  greenOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "#B4E197",
+  logo: {
+    width: 300,
+    height: 300,
   },
-  revealMask: {
+  arrowContainer: {
+    alignSelf: "center",
+    width: 60,
+    height: 60,
     position: "absolute",
-    alignSelf: "center", // Center the image horizontally
-    backgroundColor: "white",
-    zIndex: 1,
-  },
-  arrow: {
-    position: "absolute",
-    left: "50%",
-    right: "50%",
-    justifyContent: "center",
+    backgroundColor: "red",
+    bottom: 0,
     alignItems: "center",
-    zIndex: 2,
-  },
-  arrowShape: {
-    width: 100,
-    height: 100,
-    backgroundColor: "#000",
-    borderRadius: 50,
+    justifyContent: "center",
+    borderRadius: 30,
   },
 });
